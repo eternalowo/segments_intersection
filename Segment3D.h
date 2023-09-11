@@ -31,8 +31,15 @@ namespace AnGeom {
 
 			return Vector3D(x, y, z);
 		};
+		
+		bool operator==(const Segment3D& seg) {
+			return ((_start == seg.get_pos().first
+				&& _end == seg.get_pos().second) ||
+				(_end == seg.get_pos().first
+				&& _start == seg.get_pos().second));
+		};
 
-		friend std::ostream& operator<< (std::ostream& out, const Segment3D& seg) {
+		friend std::ostream& operator<<(std::ostream& out, const Segment3D& seg) {
 			out << seg.get_pos().first << " --- " << seg.get_pos().second;
 			return out;
 		};

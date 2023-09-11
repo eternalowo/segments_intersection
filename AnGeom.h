@@ -15,11 +15,11 @@ namespace AnGeom {
 
 	Vector3D connection_point(const Segment3D& first, const Segment3D& second);
 
-	bool is_on_one_plain(const Segment3D& first, const Segment3D& second);
-
 	bool is_point_on_segment(const Vector3D& point, const Segment3D& segment);
 
-	Vector3D intersect(const Segment3D& first, const Segment3D& second);
+	bool is_on_one_plain(const Segment3D& first, const Segment3D& second);
+
+	Vector3D intersect(Segment3D& first, Segment3D& second);
 
 }; // namespace AnGeom
 

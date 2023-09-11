@@ -4,10 +4,10 @@
 
 int main() {
 
-	auto A = AnGeom::Vector3D(0, 0, 0);
-	auto B = AnGeom::Vector3D(3, 3, 3);
-	auto C = AnGeom::Vector3D(4, 4, 4);
-	auto D = AnGeom::Vector3D(5, 6, 6);
+	auto A = AnGeom::Vector3D(1, 1, 0.43);
+	auto B = AnGeom::Vector3D(4, 4, 4);
+	auto C = AnGeom::Vector3D(2, 2, 0);
+	auto D = AnGeom::Vector3D(-4, -4, 8.543);
 
 	auto AB = AnGeom::Segment3D(A, B);
 	auto CD = AnGeom::Segment3D(C, D);

@@ -39,7 +39,7 @@ namespace AnGeom {
 
 			double x = vec.x() - X;
 			double y = vec.y() - Y;
-			double z = vec.z() - Y;
+			double z = vec.z() - Z;
 
 			return Vector3D(x, y, z);
 
@@ -49,7 +49,7 @@ namespace AnGeom {
 			return (abs(X - vec.x()) < EPS && abs(Y - vec.y()) < EPS && abs(Z - vec.z()) < EPS);
 		};
 
-		friend std::ostream& operator<< (std::ostream& out, const Vector3D& vec) {
+		friend std::ostream& operator<<(std::ostream& out, const Vector3D& vec) {
 			out << "(" << vec.x() << ", " << vec.y() << ", " << vec.z() << ")";
 			return out;
 		};
