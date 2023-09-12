@@ -122,7 +122,7 @@ namespace AnGeom {
 					/ det2x2(A.x() - B.x(), D.x() - C.x(), A.y() - B.y(), D.y() - C.y());
 			}
 
-			if (u > EPS && u < 1.0 + EPS)
+			if (u > EPS && u < 1.0 - EPS)
 				return Vector3D(u * (A.x() - B.x()) + B.x(), u * (A.y() - B.y()) + B.y(), u * (A.z() - B.z()) + B.z());
 		}
 		return Vector3D(INF, INF, INF);
