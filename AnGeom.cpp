@@ -113,31 +113,12 @@ namespace AnGeom {
 					/ det2x2(A.x() - B.x(), D.x() - C.x(), A.z() - B.z(), D.z() - C.z());
 			}
 
-			else if (std::isnan(u) || std::isnan(v)) {
+			if (std::isnan(u) || std::isnan(v)) {
 				u = det2x2(D.x() - B.x(), D.x() - C.x(), D.y() - B.y(), D.y() - C.y())
 					/ det2x2(A.x() - B.x(), D.x() - C.x(), A.y() - B.y(), D.y() - C.y());
 				v = det2x2(A.x() - B.x(), D.x() - B.x(), A.y() - B.y(), D.y() - B.y())
 					/ det2x2(A.x() - B.x(), D.x() - C.x(), A.y() - B.y(), D.y() - C.y());
 			}
-
-			if ((u > EPS && u < 1.0 + EPS) && (v > EPS && v < 1.0 + EPS))
-				return Vector3D(u * (A.x() - B.x()) + B.x(), u * (A.y() - B.y()) + B.y(), u * (A.z() - B.z()) + B.z());
-			
-			double x = (A.x() * v1.y() * v2.x() - C.x() * v2.y() * v1.x() - A.y() * v1.x() * v2.x() + C.y() * v1.x() * v2.x())
-				/ (v1.y() * v2.x() - v2.y() * v1.x());
-
-			double y = (A.y() * v1.x() * v2.y() - C.y() * v2.x() * v1.y() - A.x() * v1.y() * v2.y() + C.x() * v1.y() * v2.y())
-				/ (v1.x() * v2.y() - v2.x() * v1.y());
-
-			double z = (A.z() * v1.y() * v2.z() - C.z() * v2.y() * v1.z() - A.y() * v1.z() * v2.z() + C.y() * v1.z() * v2.z())
-				/ (v1.y() * v2.z() - v2.y() * v1.z());
-
-			if (!std::isnan(x))
-				u = (x - B.x()) / (A.x() - B.x());
-			else if (!std::isnan(y))
-				u = (y - B.y()) / (A.y() - B.y());
-			else if (!std::isnan(z))
-				u = (z - B.z()) / (A.z() - B.z());
 
 			if (u > EPS && u < 1.0 + EPS)
 				return Vector3D(u * (A.x() - B.x()) + B.x(), u * (A.y() - B.y()) + B.y(), u * (A.z() - B.z()) + B.z());
