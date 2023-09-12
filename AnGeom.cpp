@@ -55,7 +55,7 @@ namespace AnGeom {
 		double dot = dot_product(vec1, vec2);
 		double len_mult = vec1.get_length() * vec2.get_length();
 
-		if (abs(len_mult - dot) < EPS && (vec2.get_length() < vec1.get_length()))
+		if (abs(len_mult - dot) < EPS && (vec2.get_length() - vec1.get_length()) < EPS)
 			return true;
 
 		return false;
@@ -79,21 +79,26 @@ namespace AnGeom {
 
 		if (first.is_point() && second.is_point() && first == second)
 			return first.get_pos().first;
+
 		// Checking if segments are equal
 		if (first == second)
 			return Vector3D(INF, INF, INF);
+
 		// Checking if first segment is a point and if it lies on the second segment
 		if (first.is_point())
 			return is_point_on_segment(first.get_pos().first, second) ? first.get_pos().first : Vector3D(INF, INF, INF);
+
 		// Checking if second segment is a point and if it lies on the first segment
 		else if (second.is_point())
-			return is_point_on_segment(second.get_pos().first, first) ? second.get_pos().first : Vector3D(INF, INF, INF);
+
 		// Checking if segments has connection point 
 		if (is_connected(first, second))
-			return connection_point(first, second);;
+			return connection_point(first, second);
+
 		// Checking if direction vectors are collinear
 		if (is_collinear(first.get_vector(), second.get_vector()))
 			return Vector3D(INF, INF, INF);
+
 		// Checking if segments belong to one plain
 		if (is_on_one_plain(first, second)) {
 			double u = -1, v = -1;
