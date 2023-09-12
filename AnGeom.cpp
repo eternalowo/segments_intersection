@@ -77,6 +77,8 @@ namespace AnGeom {
 		// If the segments do not intersect, or have an infinite
 		// number of intersection points returns Vector3D(INF, INF, INF)
 
+		if (first.is_point() && second.is_point() && first == second)
+			return first.get_pos().first;
 		// Checking if segments are equal
 		if (first == second)
 			return Vector3D(INF, INF, INF);
