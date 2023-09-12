@@ -90,6 +90,7 @@ namespace AnGeom {
 
 		// Checking if second segment is a point and if it lies on the first segment
 		else if (second.is_point())
+			return is_point_on_segment(second.get_pos().first, first) ? second.get_pos().first : Vector3D(INF, INF, INF);
 
 		// Checking if segments has connection point 
 		if (is_connected(first, second))
