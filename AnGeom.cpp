@@ -48,7 +48,7 @@ namespace AnGeom {
 
 	bool is_point_on_segment(const Vector3D& point, const Segment3D& segment) {
 
-		// Checking if point lies on segment using cross product and dot product
+		// Checking if point lies on segment using dot product
 		Vector3D vec1 = segment.get_pos().second - segment.get_pos().first;
 		Vector3D vec2 = point - segment.get_pos().first;
 
